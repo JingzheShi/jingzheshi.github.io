@@ -4,7 +4,7 @@ on:
   push:
     branches: [master]
     paths:
-      - 'Chinese_ver.html'
+      - 'index_cn.html'
 
 jobs:
   sync:
@@ -15,7 +15,7 @@ jobs:
 
       - name: Prepare index.html with base tag
         run: |
-          sed 's|<link rel="shortcut icon"|<base href="https://jingzheshi.github.io/">\n    <link rel="shortcut icon"|' Chinese_ver.html > /tmp/index.html
+          sed 's|<link rel="shortcut icon"|<base href="https://jingzheshi.github.io/">\n    <link rel="shortcut icon"|' index_cn.html > /tmp/index.html
 
       - name: Push to org repo
         run: |
