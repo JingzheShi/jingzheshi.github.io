@@ -1,27 +1,19 @@
 {
-  "task": "Update Jingzhe Shi homepage with Timestep Weighting paper",
+  "task": "Remove venue naming from latest preprint status in both homepage language versions",
   "metrics": {
-    "pages_verified": 3,
-    "site_commit": "5b6119e6cc9c5cdc37d6497f2bd7678c9af5bf54"
+    "english_status_updated": 1,
+    "chinese_status_updated": 1,
+    "historical_iclr_2026_entries_preserved": 1,
+    "commit_pushed": 1
   },
-  "notes": "Paper is first on live English, Chinese, and Chinese mirror pages; GitHub Pages build and Chinese sync workflow succeeded.",
+  "notes": "English now says ‘Preprint, under review’; Chinese says ‘预印本，审稿中’. Project memory records that venues must not be named for this preprint. Existing ICLR 2026 historical entries were retained. Commit 33913d1 was pushed to origin/master.",
   "evidence": {
     "artifacts": [
       "index.html",
       "index_cn.html",
-      "PROGRESS.md",
       "AGENTS.md"
     ],
     "wandb_run": "not applicable",
-    "repro_cmd": "python3 -c \"import requests; from bs4 import BeautifulSoup; print([BeautifulSoup(requests.get(u,timeout=15).text,'html.parser').select_one('span.papertitle').get_text(strip=True) for u in ['https://jingzheshi.github.io/','https://jingzheshi.github.io/index_cn.html','https://jingzhe-cn.github.io/']])\"",
-    "source_commit": "5b6119e6cc9c5cdc37d6497f2bd7678c9af5bf54",
-    "pages_build_api": "https://api.github.com/repos/JingzheShi/jingzheshi.github.io/pages/builds/latest",
-    "chinese_sync_run": "https://github.com/JingzheShi/jingzheshi.github.io/actions/runs/36707780036",
-    "chinese_mirror_commit": "e3fd188f67f60d253b1916b1237a16c0dce3c813",
-    "online_pages": [
-      "https://jingzheshi.github.io/",
-      "https://jingzheshi.github.io/index_cn.html",
-      "https://jingzhe-cn.github.io/"
-    ]
+    "repro_cmd": "rg -n -i 'ICLR ?2027|Preprint, under review|预印本，审稿中|ICLR ?2026' index.html index_cn.html AGENTS.md"
   }
 }
