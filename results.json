@@ -1,0 +1,27 @@
+{
+  "task": "Update Jingzhe Shi homepage with Timestep Weighting paper",
+  "metrics": {
+    "pages_verified": 3,
+    "site_commit": "5b6119e6cc9c5cdc37d6497f2bd7678c9af5bf54"
+  },
+  "notes": "Paper is first on live English, Chinese, and Chinese mirror pages; GitHub Pages build and Chinese sync workflow succeeded.",
+  "evidence": {
+    "artifacts": [
+      "index.html",
+      "index_cn.html",
+      "PROGRESS.md",
+      "AGENTS.md"
+    ],
+    "wandb_run": "not applicable",
+    "repro_cmd": "python3 -c \"import requests; from bs4 import BeautifulSoup; print([BeautifulSoup(requests.get(u,timeout=15).text,'html.parser').select_one('span.papertitle').get_text(strip=True) for u in ['https://jingzheshi.github.io/','https://jingzheshi.github.io/index_cn.html','https://jingzhe-cn.github.io/']])\"",
+    "source_commit": "5b6119e6cc9c5cdc37d6497f2bd7678c9af5bf54",
+    "pages_build_api": "https://api.github.com/repos/JingzheShi/jingzheshi.github.io/pages/builds/latest",
+    "chinese_sync_run": "https://github.com/JingzheShi/jingzheshi.github.io/actions/runs/36707780036",
+    "chinese_mirror_commit": "e3fd188f67f60d253b1916b1237a16c0dce3c813",
+    "online_pages": [
+      "https://jingzheshi.github.io/",
+      "https://jingzheshi.github.io/index_cn.html",
+      "https://jingzhe-cn.github.io/"
+    ]
+  }
+}
